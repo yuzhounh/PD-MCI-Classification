@@ -1,0 +1,14 @@
+pandas
+numpy
+scipy
+statsmodels
+scikit-learn
+matplotlib
+seaborn
+xgboost
+optuna
+shap
+svglib
+reportlab
+cairosvg
+Pillow

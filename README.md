@@ -7,7 +7,7 @@ The repository includes a complete pipeline for data preprocessing, statistical 
 ## Key Features
 
 -   **Data Processing**: A comprehensive workflow for filtering, cleaning, feature engineering, and label generation from the raw PPMI dataset.
--   **Feature Selection**: Utilizes LASSO regression to identify the most relevant clinical markers associated with PD-MCI.
+-   **Feature Selection**: Utilizes LASSO Logistic Regression to identify the most relevant clinical markers associated with PD-MCI.
 -   **Model Comparison**: Trains and evaluates four mainstream machine learning models: Logistic Regression (LR), Support Vector Machine (SVM), Random Forest (RF), and XGBoost.
 -   **Automated Tuning**: Employs Optuna for Bayesian hyperparameter optimization to achieve the best performance for each model.
 -   **Interpretability**: Analyzes models using SHAP (SHapley Additive exPlanations) and permutation importance to explain the contribution of each feature to the prediction outcomes.
@@ -46,7 +46,7 @@ Please execute the Python scripts in the following order to reproduce the entire
 4.  **`4_lasso.py`**
     -   Splits the data into training and testing sets using `StratifiedGroupKFold` to ensure that all records from a single patient belong to only one set.
     -   Standardizes the data.
-    -   Performs 10-fold cross-validation on the training set using LASSO regression, optimizing the regularization parameter `lambda` based on AUC-PR (Area Under the Precision-Recall Curve).
+    -   Performs 10-fold cross-validation on the training set using LASSO Logistic Regression, optimizing the regularization parameter `lambda` based on AUC-PR (Area Under the Precision-Recall Curve).
     -   Selects features with non-zero coefficients at the optimal `lambda`.
     -   Saves the selected feature weights and generates diagnostic plots.
     -   Creates new, feature-selected training and testing sets.

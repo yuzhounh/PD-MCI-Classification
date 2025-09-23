@@ -1,12 +1,14 @@
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import average_precision_score
+from sklearn.metrics import (roc_auc_score, average_precision_score, confusion_matrix, 
+                           accuracy_score, balanced_accuracy_score, precision_score, 
+                           recall_score, f1_score, cohen_kappa_score)
 import optuna
 import shap
 from utils import *
 
-# Set font to Arial for plots
+# Set font to Arial
 plt.rcParams['font.sans-serif'] = ['Arial']
 
 class RFModel:
@@ -347,8 +349,8 @@ def main():
     
     # Load data
     train_data, test_data, feature_name_mapping = load_data(
-        'PPMI_7_train.csv', 
-        'PPMI_7_test.csv', 
+        'PPMI_6_train.csv', 
+        'PPMI_6_test.csv', 
         'PPMI_feature_mapping.csv'
     )
     
@@ -364,7 +366,7 @@ def main():
     y_test = y_test.values
     
     # Get feature names (using abbreviations)
-    feature_names = [feature_name_mapping.get(col, col) for col in train_data.columns if col not in ['SITE', 'MCI']]
+    feature_names = [feature_name_mapping.get(col, col) for col in train_data.columns if col not in ['PATNO', 'MCI']]
     
     # Create RF model
     rf_model = RFModel(random_state=42)

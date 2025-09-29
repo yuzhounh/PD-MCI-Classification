@@ -1,6 +1,5 @@
 import os
 import matplotlib.pyplot as plt
-import numpy as np
 from svglib.svglib import svg2rlg
 from reportlab.graphics import renderPDF
 from reportlab.pdfgen import canvas

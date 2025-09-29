@@ -1,9 +1,8 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
      
-# Set font to Arial
+# Set font to Arial for plots
 plt.rcParams['font.sans-serif'] = ['Arial']
 
 def plot_combined_feature_importance():

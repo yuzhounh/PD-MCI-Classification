@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 def analyze_ppmi_data(csv_file_path):
     """

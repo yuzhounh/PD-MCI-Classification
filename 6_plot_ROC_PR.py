@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import roc_curve, roc_auc_score, precision_recall_curve, average_precision_score
 
-# Set font to Arial
+# Set font to Arial for plots
 plt.rcParams['font.sans-serif'] = ['Arial']
 
 # Define algorithm names and corresponding colors

@@ -1,14 +1,14 @@
 import numpy as np
 import pandas as pd
 from sklearn.svm import SVC
-from sklearn.metrics import (roc_auc_score, average_precision_score, confusion_matrix, 
-                           accuracy_score, balanced_accuracy_score, precision_score, 
-                           recall_score, f1_score, cohen_kappa_score)
+from sklearn.metrics import average_precision_score
 import optuna
 import shap
 from utils import *
+import warnings
+warnings.filterwarnings('ignore')
 
-# Set font to Arial
+# Set font to Arial for plots
 plt.rcParams['font.sans-serif'] = ['Arial']
 
 class SVMModel:

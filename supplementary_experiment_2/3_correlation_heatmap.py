@@ -9,7 +9,7 @@ plt.rcParams['font.sans-serif'] = ['Arial']
 
 # Read data file
 data = pd.read_csv('PPMI_5_label.csv')
-feature_mapping = pd.read_csv('PPMI_feature_mapping.csv')
+feature_mapping = pd.read_csv('../PPMI_feature_mapping.csv')
 
 print(f"Data shape: {data.shape}")
 print(f"Feature mapping table shape: {feature_mapping.shape}")

@@ -1,12 +1,12 @@
 import numpy as np
 import pandas as pd
 import xgboost as xgb
-from sklearn.metrics import (roc_auc_score, average_precision_score, confusion_matrix, 
-                           accuracy_score, balanced_accuracy_score, precision_score, 
-                           recall_score, f1_score, cohen_kappa_score)
+from sklearn.metrics import average_precision_score
 import optuna
 import shap
 from utils import *
+import warnings
+warnings.filterwarnings('ignore')
 
 # Set font to Arial
 plt.rcParams['font.sans-serif'] = ['Arial']
@@ -412,7 +412,7 @@ def main():
     train_data, test_data, feature_name_mapping = load_data(
         'PPMI_7_train.csv', 
         'PPMI_7_test.csv', 
-        'PPMI_feature_mapping.csv'
+        '../PPMI_feature_mapping.csv'
     )
     
     # Prepare training data

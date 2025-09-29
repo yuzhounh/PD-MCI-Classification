@@ -476,7 +476,7 @@ def main():
     data = pd.read_csv('PPMI_5_remove_PATNO.csv')
     print(f"Original data shape: {data.shape}")
 
-    feature_mapping = pd.read_csv('PPMI_feature_mapping.csv')
+    feature_mapping = pd.read_csv('../PPMI_feature_mapping.csv')
     feature_dict = dict(zip(feature_mapping['Feature Name'], feature_mapping['Abbreviation']))
     print(f"Loaded {len(feature_dict)} feature mappings")
     

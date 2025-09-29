@@ -107,7 +107,7 @@ def wrapper_methods_analysis():
     train_data, test_data, feature_name_mapping = load_data(
         'PPMI_6_train.csv',
         'PPMI_6_test.csv', 
-        'PPMI_feature_mapping.csv'
+        '../PPMI_feature_mapping.csv'
     )
     
     # Prepare training data

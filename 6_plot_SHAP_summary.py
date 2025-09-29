@@ -9,7 +9,7 @@ import cairosvg
 from PIL import Image
 import io
 
-# Set font to Arial
+# Set font to Arial for plots
 plt.rcParams['font.sans-serif'] = ['Arial']
 
 def merge_shap_svgs_to_pdf(base_dir=".", output_filename="6_combined_shap_summary"):

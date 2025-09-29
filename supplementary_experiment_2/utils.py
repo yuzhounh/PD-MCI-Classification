@@ -2,14 +2,12 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.model_selection import StratifiedGroupKFold, train_test_split
+from sklearn.model_selection import StratifiedGroupKFold
 from sklearn.metrics import (accuracy_score, balanced_accuracy_score, precision_score, 
                            recall_score, f1_score, roc_auc_score, average_precision_score,
                            confusion_matrix, roc_curve, precision_recall_curve, cohen_kappa_score)
 from sklearn.inspection import permutation_importance
 import shap
-import warnings
-warnings.filterwarnings('ignore')
 
 def load_data(train_file, test_file, feature_mapping_file):
     """Load training set, test set and feature mapping file"""

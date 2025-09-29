@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from matplotlib.backends.backend_pdf import PdfPages
 
+# Set font to Arial for plots
 plt.rcParams['font.sans-serif'] = ['Arial']
 
 # Read data file

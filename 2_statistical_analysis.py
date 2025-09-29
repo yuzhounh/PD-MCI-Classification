@@ -3,8 +3,6 @@ import numpy as np
 from scipy import stats
 from scipy.stats import chi2_contingency, mannwhitneyu, ttest_ind, fisher_exact
 from statsmodels.stats.multitest import fdrcorrection
-import warnings
-warnings.filterwarnings('ignore')
 
 def determine_variable_type(series):
     """Determine variable type"""

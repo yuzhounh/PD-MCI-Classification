@@ -5,6 +5,8 @@ from sklearn.metrics import average_precision_score
 import optuna
 import shap
 from utils import *
+import warnings
+warnings.filterwarnings('ignore')
 
 # Set font to Arial for plots
 plt.rcParams['font.sans-serif'] = ['Arial']
@@ -349,7 +351,7 @@ def main():
     train_data, test_data, feature_name_mapping = load_data(
         'PPMI_7_train.csv', 
         'PPMI_7_test.csv', 
-        'PPMI_feature_mapping.csv'
+        '../PPMI_feature_mapping.csv'
     )
     
     # Prepare training data

@@ -15,12 +15,12 @@ def load_and_prepare_data():
     
     # Read feature mapping table
     try:
-        mapping_data = pd.read_csv('PPMI_feature_mapping.csv')
+        mapping_data = pd.read_csv('../PPMI_feature_mapping.csv')
         feature_mapping = dict(zip(mapping_data['Feature Name'], mapping_data['Abbreviation']))
     except:
         # If mapping file doesn't exist, use original column names
         feature_mapping = {}
-        print("Warning: PPMI_feature_mapping.csv not found. Using original feature names.")
+        print("Warning: ../PPMI_feature_mapping.csv not found. Using original feature names.")
     
     # Remove subject ID column (first column) and extract target variable (last column)
     X = train_data.iloc[:, 1:-1]  # Feature variables
@@ -194,6 +194,9 @@ def plot_feature_scores(results):
     # Get feature abbreviations for display
     feature_names = results['Abbreviation'].tolist()
     
+    # Define colors
+    colors = ['#008BFB', '#FF365E', '#00D084', '#FFB627']
+    
     # 1. ANOVA F-Score
     ax1 = axes[0, 0]
     scores = results['ANOVA_F_Score'].values
@@ -201,7 +204,7 @@ def plot_feature_scores(results):
     sorted_features = [feature_names[i] for i in sorted_idx]
     sorted_scores = scores[sorted_idx]
     
-    bars1 = ax1.barh(range(len(sorted_scores)), sorted_scores, color='#008BFB')
+    bars1 = ax1.barh(range(len(sorted_scores)), sorted_scores, color=colors[0], alpha=0.8)
     ax1.set_yticks(range(len(sorted_scores)))
     ax1.set_yticklabels(sorted_features, fontsize=10)
     ax1.set_title('ANOVA F-Score', fontsize=12, fontweight='bold')
@@ -215,7 +218,7 @@ def plot_feature_scores(results):
     sorted_features = [feature_names[i] for i in sorted_idx]
     sorted_scores = scores[sorted_idx]
     
-    bars2 = ax2.barh(range(len(sorted_scores)), sorted_scores, color='#FF6B6B')
+    bars2 = ax2.barh(range(len(sorted_scores)), sorted_scores, color=colors[1], alpha=0.8)
     ax2.set_yticks(range(len(sorted_scores)))
     ax2.set_yticklabels(sorted_features, fontsize=10)
     ax2.set_title('Chi-Square Score', fontsize=12, fontweight='bold')
@@ -229,7 +232,7 @@ def plot_feature_scores(results):
     sorted_features = [feature_names[i] for i in sorted_idx]
     sorted_scores = scores[sorted_idx]
     
-    bars3 = ax3.barh(range(len(sorted_scores)), sorted_scores, color='#4ECDC4')
+    bars3 = ax3.barh(range(len(sorted_scores)), sorted_scores, color=colors[2], alpha=0.8)
     ax3.set_yticks(range(len(sorted_scores)))
     ax3.set_yticklabels(sorted_features, fontsize=10)
     ax3.set_title('Pearson Correlation (Absolute)', fontsize=12, fontweight='bold')
@@ -243,7 +246,7 @@ def plot_feature_scores(results):
     sorted_features = [feature_names[i] for i in sorted_idx]
     sorted_scores = scores[sorted_idx]
     
-    bars4 = ax4.barh(range(len(sorted_scores)), sorted_scores, color='#FFD93D')
+    bars4 = ax4.barh(range(len(sorted_scores)), sorted_scores, color=colors[3], alpha=0.8)
     ax4.set_yticks(range(len(sorted_scores)))
     ax4.set_yticklabels(sorted_features, fontsize=10)
     ax4.set_title('Mutual Information', fontsize=12, fontweight='bold')

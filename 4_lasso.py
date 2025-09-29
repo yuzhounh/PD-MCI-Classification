@@ -6,9 +6,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import average_precision_score
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
-import warnings
-warnings.filterwarnings('ignore')
 
+# Set font to Arial for plots
 plt.rcParams['font.sans-serif'] = ['Arial']
 
 # ====================== Core Modular Functions ======================

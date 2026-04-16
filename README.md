@@ -1,5 +1,11 @@
 # PD-MCI-Classification: Machine Learning to Predict Mild Cognitive Impairment in Parkinson's Disease
 
+[![Paper](https://img.shields.io/badge/Paper-Frontiers%20in%20Aging%20Neuroscience-blue)](https://doi.org/10.3389/fnagi.2025.1687925)
+
+> **📄 This repository contains the code for the following paper:**
+>
+> Wang, J., Chen, Y., Xie, X., Wang, P., Hu, H., Han, H., Wang, L., & Zhang, L. (2025). Diagnostic classification of mild cognitive impairment in Parkinson's disease using subject-level stratified machine-learning analysis. *Frontiers in Aging Neuroscience*, 17, 1687925.
+
 This project uses machine learning models to predict the presence of Mild Cognitive Impairment (MCI) in patients with Parkinson's Disease (PD), based on the Parkinson's Progression Markers Initiative (PPMI) dataset.
 
 The repository includes a complete pipeline for data preprocessing, statistical analysis, feature selection, model training, hyperparameter optimization, and results visualization.
@@ -84,6 +90,23 @@ The supplementary experiments aim to validate the models' robustness and general
 -   **Supplementary Experiment IV**: Provides a systematic comparison of multiple feature selection methods—including Filter, Wrapper, and Embedded approaches—to confirm the stability and reliability of the predictors identified in the main experiment.
 
 See `Supplementary_Material.pdf` for details.
+
+## Citation
+
+If you find this project useful for your research, please consider citing our paper:
+
+```bibtex
+@article{wang2025diagnostic,
+  title={Diagnostic classification of mild cognitive impairment in Parkinson's disease using subject-level stratified machine-learning analysis},
+  author={Wang, Jing and Chen, Yanfang and Xie, Xiao and Wang, Pengwei and Hu, Hang and Han, Hongfang and Wang, Lihan and Zhang, Li},
+  journal={Frontiers in Aging Neuroscience},
+  volume={17},
+  pages={1687925},
+  year={2025},
+  publisher={Frontiers Media SA},
+  doi={10.3389/fnagi.2025.1687925}
+}
+```
 
 ## Contact
 

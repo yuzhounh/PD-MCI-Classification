@@ -1,5 +1,9 @@
 # PD-MCI-Classification: Machine Learning to Predict Mild Cognitive Impairment in Parkinson's Disease
 
+Python analysis scripts for subject-level stratified classification of mild cognitive impairment in Parkinson’s disease using PPMI data.
+
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-D4AF37?style=flat-square)](LICENSE)
+
 [![Paper](https://img.shields.io/badge/Paper-Frontiers%20in%20Aging%20Neuroscience-blue)](https://doi.org/10.3389/fnagi.2025.1687925)
 
 > **📄 This repository contains the code for the following paper:**
@@ -21,13 +25,18 @@ The repository includes a complete pipeline for data preprocessing, statistical 
 
 ## Dataset
 
-This project relies on data from the [PPMI database](https://www.ppmi-info.org/access-data-specimens/download-data). To run this code, you must obtain the following files and place them in the project's root directory:
+This project relies on data from the [PPMI database](https://www.ppmi-info.org/access-data-specimens/download-data). The current checkout includes the following root-level files; verify that they are the intended data release before running the analysis:
 
 1.  `PPMI_Curated_Data_Cut_Public_20250321.xlsx`: The original PPMI data file containing the clinical data.
 2.  `PPMI_feature_mapping.csv`: A custom feature mapping file used to convert feature names into more readable abbreviations for plotting. This file should contain two columns: `Feature Name` and `Abbreviation`.
 
-
 ## How to Use
+
+Install the pinned dependencies in an isolated Python 3.12 environment before running the scripts from the repository root:
+
+```bash
+python -m pip install -r requirements.txt
+```
 
 Please execute the Python scripts in the following order to reproduce the entire analysis pipeline.
 
@@ -50,7 +59,7 @@ Please execute the Python scripts in the following order to reproduce the entire
     -   Generates and saves a feature correlation heatmap.
 
 4.  **`4_lasso.py`**
-    -   Splits the data into training and testing sets using `StratifiedGroupKFold` to ensure that all records from a single patient belong to only one set.
+    -   Creates a stratified train/test split over unique patient IDs using `train_test_split`, then maps those IDs back to records; `StratifiedGroupKFold` is used for subject-level cross-validation within training.
     -   Standardizes the data.
     -   Performs 10-fold cross-validation on the training set using LASSO Logistic Regression, optimizing the regularization parameter `lambda` based on AUC-PR (Area Under the Precision-Recall Curve).
     -   Selects features with non-zero coefficients at the optimal `lambda`.
@@ -91,6 +100,14 @@ The supplementary experiments aim to validate the models' robustness and general
 
 See `Supplementary_Material.pdf` for details.
 
+## Repository Structure
+
+- `1_extract_data.py` through `4_lasso.py`: preparation, statistics, and selection.
+- `5_*.py` and `6_plot_*.py`: model experiments and visualizations.
+- [utils.py](utils.py) and [requirements.txt](requirements.txt): shared functions and environment.
+- `supplementary_experiment_1/` through `supplementary_experiment_4/`: additional analyses.
+- [Supplementary_Material.pdf](Supplementary_Material.pdf): supplementary documentation.
+
 ## Citation
 
 If you find this project useful for your research, please consider citing our paper:
@@ -107,6 +124,10 @@ If you find this project useful for your research, please consider citing our pa
   doi={10.3389/fnagi.2025.1687925}
 }
 ```
+
+## License
+
+See the existing [GPL-3.0 license](LICENSE).
 
 ## Contact
 
